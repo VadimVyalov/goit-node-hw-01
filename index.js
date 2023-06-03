@@ -1,6 +1,7 @@
 const contacts = require("./contacts");
 const { Command } = require("commander");
 const program = new Command();
+
 program
   .option("-a, --action <type>", "choose action", "list")
   .option("-i, --id <type>", "user id")
@@ -13,7 +14,6 @@ program.parse(process.argv);
 const argv = program.opts();
 
 const invokeAction = ({ action, id, name, email, phone }) => {
-  //   console.log(action);
   switch (action) {
     case "list":
       contacts.listContacts();
